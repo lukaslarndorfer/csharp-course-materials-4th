@@ -1,0 +1,38 @@
+<mat-sidenav-container>
+  <mat-sidenav #drawer
+               [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+               [mode]="(isHandset$ | async) ? 'over' : 'side'"
+               [opened]="(isNotHandset$ | async)">
+    <!--isHandset = ob Handy; async da der -->
+    @if (isNotHandset$ | async) {
+      <mat-toolbar class="title-container">
+        <span>{{ title }}</span>
+      </mat-toolbar>
+    }
+    <mat-nav-list>
+      <app-nav-item route="news" [iconName]="'newspaper'">News</app-nav-item>
+      <app-nav-item route="exhibits" [iconName]="'museum'">Exhibits</app-nav-item>
+      <app-nav-item route="exhibit-edit" [iconName]="'construction'">Modification</app-nav-item>
+      <app-nav-item [route]="'contact'" [iconName]="'alternate_email'">Contact</app-nav-item>
+
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar class="sticky-toolbar">
+      @if (isHandset$ | async) {
+        <button type="button"
+                aria-label="Toggle sidenav"
+                mat-icon-button
+                (click)="drawer.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <div class="title-container">
+          <span>{{ title }}</span>
+        </div>
+      }
+    </mat-toolbar>
+    <div id="main-container">
+      <router-outlet/> <!--angular ist ja ne single page application, aber router outlet routet das oder so-->
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
