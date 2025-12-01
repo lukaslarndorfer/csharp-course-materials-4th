@@ -1,10 +1,10 @@
-import {Component, inject, signal, WritableSignal} from '@angular/core';
-import {RouterLink, RouterOutlet} from '@angular/router';
+import {Component, inject} from '@angular/core';
+import {Router, RouterOutlet} from '@angular/router';
 import {MatButton, MatIconButton} from '@angular/material/button'
 import {MatSidenav, MatSidenavContainer, MatSidenavContent} from '@angular/material/sidenav';
 import {AsyncPipe} from '@angular/common';
 import {MatToolbar} from '@angular/material/toolbar';
-import {MatListItem, MatNavList} from '@angular/material/list';
+import {MatListItem, MatListItemIcon, MatNavList} from '@angular/material/list';
 import {MatIcon} from '@angular/material/icon';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {firstValueFrom, map, Observable, shareReplay} from 'rxjs';
@@ -27,7 +27,10 @@ import {LoginDialog, LoginDialogResult} from './login-dialog/login-dialog';
     MatIcon,
     RouterOutlet,
 
-    NavItem
+    NavItem,
+    MatButton,
+    MatListItemIcon,
+    MatListItem
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss'
@@ -50,6 +53,9 @@ export class App {
   private readonly snackbar: SnackbarService = inject(SnackbarService);
   private readonly dialog: MatDialog = inject(MatDialog);
 
+  private readonly router: Router = inject(Router);
+
+
   protected async handleLogin(event: MouseEvent | undefined = undefined)
     : Promise<void> {
     if (event) {
@@ -66,5 +72,13 @@ export class App {
       return;
     }
     this.snackbar.show(`Successfully logged in!`);
+  }
+
+  public async handleLogout(event: MouseEvent | undefined = undefined): Promise<void> {
+    if (event){
+      event.preventDefault();
+    }
+    this.authService.logout();
+    await this.router.navigate(["/"]);
   }
 }

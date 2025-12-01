@@ -12,5 +12,6 @@ export const routes: Routes = [
   { path: 'exhibits', component: ExhibitList},
   { path: 'exhibits/:id', component: ExhibitDetail},
   { path: 'exhibit-edit', component: ExhibitEdit, canActivate: [authGuard]}, // kann diese Route aktiviert werden
+  { path: "exhibit-edit/:id", component: ExhibitEdit, canActivate: [authGuard]},
   { path: '', redirectTo: 'news', pathMatch: 'full'}
 ];

@@ -14,6 +14,22 @@
       <app-nav-item route="exhibits" [iconName]="'museum'">Exhibits</app-nav-item>
       <app-nav-item route="exhibit-edit" [iconName]="'construction'">Modification</app-nav-item>
       <app-nav-item [route]="'contact'" [iconName]="'alternate_email'">Contact</app-nav-item>
+      @if (isHandset$ | async) {
+        @if (authService.isLoggedIn()) {
+          <a mat-list-item="" href="https://edufs.edu.htlleonding.ac.at/moodle/pluginfile.php/272937/mod_resource/content/0/tank_museum_worksho
+p.adoc#" (click)="handleLogout($event)">
+            <mat-icon matListItemIcon="" fontIcon="logout">Logout</mat-icon>
+            Logout
+          </a>
+        } @else {
+          <a mat-list-item="" href="https://edufs.edu.htlleonding.ac.at/moodle/pluginfile.php/272937/mod_resource/content/0/tank_museum_worksho
+p.adoc#" (click)="handleLogin($event)">
+            <mat-icon matListItemIcon="" fontIcon="login">Login</mat-icon>
+            Login
+          </a>
+        }
+      }
+
 
     </mat-nav-list>
   </mat-sidenav>
@@ -24,11 +40,21 @@
                 aria-label="Toggle sidenav"
                 mat-icon-button
                 (click)="drawer.toggle()">
-          <mat-icon>menu</mat-icon>
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button>
         <div class="title-container">
           <span>{{ title }}</span>
         </div>
+      } @else {
+        @if (authService.isLoggedIn()) {
+          <button class="login-logout-button" matButton="filled"
+                  (click)="handleLogout()">Logout
+          </button>
+        } @else {
+          <button class="login-logout-button" matButton="filled"
+                  (click)="handleLogin()">Login
+          </button>
+        }
       }
     </mat-toolbar>
     <div id="main-container">
