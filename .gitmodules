@@ -7,3 +7,6 @@
 [submodule "003-movies"]
 	path = 003-movies
 	url = https://github.com/2526-4ahif-pose/ex-mapi-02-movies-lukaslarndorfer.git
+[submodule "005-tic-tac-toe"]
+	path = 005-tic-tac-toe
+	url = https://github.com/2526-4ahif-pose/ex-ang-01-tictactoe-lukaslarndorfer.git
