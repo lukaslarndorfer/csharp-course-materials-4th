@@ -4,3 +4,6 @@
 [submodule "002-pool-guard"]
 	path = 002-pool-guard
 	url = https://github.com/2526-4ahif-pose/ex-mapi-01-poolguard-lukaslarndorfer.git
+[submodule "003-movies"]
+	path = 003-movies
+	url = https://github.com/2526-4ahif-pose/ex-mapi-02-movies-lukaslarndorfer.git
