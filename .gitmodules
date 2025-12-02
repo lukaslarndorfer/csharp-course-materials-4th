@@ -10,3 +10,6 @@
 [submodule "005-tic-tac-toe"]
 	path = 005-tic-tac-toe
 	url = https://github.com/2526-4ahif-pose/ex-ang-01-tictactoe-lukaslarndorfer.git
+[submodule "006-angular-webapp"]
+	path = 006-angular-webapp
+	url = https://github.com/2526-4ahif-pose/ex-ang-02-webapp-lukaslarndorfer.git
