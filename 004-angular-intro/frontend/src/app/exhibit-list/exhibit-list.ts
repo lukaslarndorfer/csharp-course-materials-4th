@@ -13,6 +13,7 @@ import {MatTooltip} from '@angular/material/tooltip';
 import {Router} from '@angular/router';
 import {Component, computed, inject, OnInit, signal, Signal, WritableSignal} from '@angular/core';
 import {ExhibitInfo, ExhibitsService} from '../../core/services/exhibit-service';
+import {ExhibitListTable} from './exhibit-list-table/exhibit-list-table';
 
 @Component({
   selector: "app-exhibit-list",
@@ -28,7 +29,8 @@ import {ExhibitInfo, ExhibitsService} from '../../core/services/exhibit-service'
     MatRowDef,
     MatHeaderRowDef,
     MatProgressBar,
-    MatTooltip
+    MatTooltip,
+    ExhibitListTable
   ],
   templateUrl: "./exhibit-list.html",
   styleUrl: "./exhibit-list.scss"
