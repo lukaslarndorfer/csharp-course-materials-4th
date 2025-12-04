@@ -1,4 +1,4 @@
-@defer (when loading() | negate) {
+@defer (when loading() | negate) { <!-- defer = Verzögern bis Bedingung eintritt-->
   <app-exhibit-list-table [exhibits]="exhibits()"
                           (onExhibitSelected)="handleRowClicked($event)"/>
 } @placeholder (minimum 1s) {

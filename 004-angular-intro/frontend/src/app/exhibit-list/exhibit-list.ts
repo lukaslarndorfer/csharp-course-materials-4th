@@ -14,6 +14,7 @@ import {Router} from '@angular/router';
 import {Component, computed, inject, OnInit, signal, Signal, WritableSignal} from '@angular/core';
 import {ExhibitInfo, ExhibitsService} from '../../core/services/exhibit-service';
 import {ExhibitListTable} from './exhibit-list-table/exhibit-list-table';
+import {NegatePipe} from '../../core/util/negate-pipe';
 
 @Component({
   selector: "app-exhibit-list",
@@ -30,7 +31,8 @@ import {ExhibitListTable} from './exhibit-list-table/exhibit-list-table';
     MatHeaderRowDef,
     MatProgressBar,
     MatTooltip,
-    ExhibitListTable
+    ExhibitListTable,
+    NegatePipe
   ],
   templateUrl: "./exhibit-list.html",
   styleUrl: "./exhibit-list.scss"
