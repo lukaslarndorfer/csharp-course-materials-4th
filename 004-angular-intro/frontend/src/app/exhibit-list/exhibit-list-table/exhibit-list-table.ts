@@ -23,6 +23,7 @@ import {MatTooltip} from '@angular/material/tooltip';
 import {MatSort, MatSortHeader} from '@angular/material/sort';
 import {MatFormField, MatInput, MatLabel} from '@angular/material/input';
 import {MatPaginator} from '@angular/material/paginator';
+import {MatButton} from '@angular/material/button';
 
 @Component({
   selector: 'app-exhibit-list-table',
@@ -43,7 +44,8 @@ import {MatPaginator} from '@angular/material/paginator';
     MatFormField,
     MatLabel,
     MatInput,
-    MatPaginator
+    MatPaginator,
+    MatButton
   ],
   templateUrl: './exhibit-list-table.html',
   styleUrl: './exhibit-list-table.scss',
@@ -55,6 +57,7 @@ export class ExhibitListTable {
   // Mit viewChild kann man direkt
   // auf das Element zugreifen 'getElementById'
   private readonly paginator: Signal<MatPaginator> = viewChild.required(MatPaginator);
+  protected readonly expandedElements: WritableSignal<Set<number>> = signal(new Set<number>());
 
   protected readonly displayedColumns: string[] = ["name", "serviceStartYear", "serviceEndYear"];
   protected readonly exhibitData: Signal<MatTableDataSource<ExhibitInfo>>
@@ -81,6 +84,17 @@ export class ExhibitListTable {
   }
 
   public handleRowClicked(exhibit: ExhibitInfo): void {
+    this.expandedElements.update(set => {
+      if (set.has(exhibit.id)) {
+        set.delete(exhibit.id);
+      } else {
+        set.add(exhibit.id);
+      }
+      return new Set<number>(set);
+    });
+  }
+
+  public handleDetailsRequested(exhibit: ExhibitInfo): void {
     this.onExhibitSelected.emit(exhibit);
   }
 }
