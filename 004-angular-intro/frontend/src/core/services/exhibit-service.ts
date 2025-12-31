@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {ServiceBase} from './service-base';
-import z from "zod";
+import z, {number} from "zod";
 import {LocalDateSchema} from '../util/zod-schema';
 import {firstValueFrom} from 'rxjs';
 import {HttpErrorResponse} from '@angular/common/http';
