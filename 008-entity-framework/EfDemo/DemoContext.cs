@@ -7,7 +7,7 @@ public class DemoContext
 (DbContextOptions<DemoContext> options) 
     : DbContext(options)
 {
-    public DbSet<ToDoItem> ToDoItems => Set<ToDoItem>();
+    public DbSet<TodoItem> TodoItems => Set<TodoItem>();
     
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -15,7 +15,7 @@ public class DemoContext
         base.OnModelCreating(modelBuilder);
 
 
-        var todoItem = modelBuilder.Entity<ToDoItem>();
+        var todoItem = modelBuilder.Entity<TodoItem>();
         todoItem.HasKey(td => td.Id);
         todoItem.Property(td => td.Id).ValueGeneratedOnAdd();
     }
@@ -27,7 +27,7 @@ public class DemoContext
     
 }
 
-public class ToDoItem 
+public class TodoItem 
 {
     public int Id { get; set; }
     public required string Text { get; set; } 
