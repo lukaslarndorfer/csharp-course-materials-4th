@@ -9,7 +9,7 @@ public class DemoContext
     : DbContext(options)
 {
     public DbSet<TodoItem> TodoItems => Set<TodoItem>();
-
+    public DbSet<Student> Students => Set<Student>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -37,6 +37,7 @@ public class DemoContext
         todoItem.Property(td => td.Id).ValueGeneratedOnAdd();
         todoItem.Property(td => td.Text).HasMaxLength(200); // for example
     }
+
 
 
     protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
