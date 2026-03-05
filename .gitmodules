@@ -16,3 +16,6 @@
 [submodule "009-musicals"]
 	path = 009-musicals
 	url = https://github.com/2526-4ahif-pose/ex-ef-01-musicals-lukaslarndorfer.git
+[submodule "010-chess"]
+	path = 010-chess
+	url = https://github.com/2526-4ahif-pose/ex-ef-02-chess-lukaslarndorfer.git
