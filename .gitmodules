@@ -22,3 +22,6 @@
 [submodule "011-library"]
 	path = 011-library
 	url = https://github.com/2526-4ahif-pose/ex-ef-03-library-lukaslarndorfer.git
+[submodule "012-parallel-fun"]
+	path = 012-parallel-fun
+	url = https://github.com/2526-4ahif-pose/ex-ef-04-parallel-fun-lukaslarndorfer.git
