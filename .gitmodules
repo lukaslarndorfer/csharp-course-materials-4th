@@ -28,3 +28,6 @@
 [submodule "013-movies"]
 	path = 013-movies
 	url = https://github.com/2526-4ahif-pose/ex-api-01-movies-lukaslarndorfer
+[submodule "014-sudoku"]
+	path = 014-sudoku
+	url = https://github.com/2526-4ahif-pose/ex-api-02-sudoku-lukaslarndorfer.git
