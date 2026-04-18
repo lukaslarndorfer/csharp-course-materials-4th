@@ -34,3 +34,6 @@
 [submodule "015-flights"]
 	path = 015-flights
 	url = https://github.com/2526-4ahif-pose/ex-api-03-flights-lukaslarndorfer.git
+[submodule "016-effort-tracking"]
+	path = 016-effort-tracking
+	url = https://github.com/2526-4ahif-pose/ex-api-04-effort-tracking-lukaslarndorfer.git
